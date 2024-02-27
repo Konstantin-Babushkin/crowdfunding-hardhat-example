@@ -5,10 +5,14 @@ async function main() {
 
   console.log("Deploying contracts with the account:", deployer.address);
 
-  const nftAddress = "0x123..."; // Replace with your ERC721 contract address
+  const tokenFactory = await ethers.getContractFactory("MyToken");
+  const token = await tokenFactory.deploy(1000000)
+  await token.deploymentTransaction()
+  console.log("MyToken address:", await token.getAddress());
 
-  const crowdFund = await ethers.deployContract("CrowdFund", [deployer.address]);
-  await crowdFund.waitForDeployment();
+  const crowdFundFactory = await ethers.getContractFactory("CrowdFund");
+  const crowdFund = await crowdFundFactory.deploy(token)
+  await crowdFund.deploymentTransaction()
 
   console.log("CrowdFund address:", await crowdFund.getAddress());
 }

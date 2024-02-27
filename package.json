@@ -1,5 +1,5 @@
 {
-  "name": "hardhat-example",
+  "name": "crowdfunding-hardhat-example",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,6 +8,9 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+      "@openzeppelin/contracts": "^4.8.2"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^4.0.0",
     "hardhat": "^2.19.5"

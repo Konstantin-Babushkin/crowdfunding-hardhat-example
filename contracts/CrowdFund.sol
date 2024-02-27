@@ -44,6 +44,8 @@ contract CrowdFund {
     mapping(uint => Campaign) public campaigns;
     // Mapping from campaign id => pledger => amount pledged
     mapping(uint => mapping(address => uint)) public pledgedAmount;
+    // IDs of campaigns
+    uint[] public campaignIds;
 
     constructor(address _token) {
         token = IERC20(_token);
@@ -63,6 +65,8 @@ contract CrowdFund {
             endAt: _endAt,
             claimed: false
         });
+
+        campaignIds.push(count);
 
         emit Launch(count, msg.sender, _goal, _startAt, _endAt);
     }
@@ -122,5 +126,13 @@ contract CrowdFund {
         token.transfer(msg.sender, bal);
 
         emit Refund(_id, msg.sender, bal);
+    }
+
+    function getCampaignIds() external view returns (uint[] memory) {
+        return campaignIds;
+    }
+
+    function getCampaignById(uint id) external view returns (Campaign memory) {
+        return campaigns[id];
     }
 }
