@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+// This code is provided by https://solidity-by-example.org/app/crowd-fund/ and used in accordance with MIT license
+// It was slightly modified by me but all credits should go to its authors.
+
 interface IERC20 {
     function transfer(address, uint) external returns (bool);
 
