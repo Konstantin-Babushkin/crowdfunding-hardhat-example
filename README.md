@@ -21,6 +21,4 @@ npx hardhat node
  npx hardhat run --network localhost scripts/deploy.ts
 ```
 
-[//]: # TODO add link to repo
-
-(3) run front-end app [crowdfunding-frontend-example]()
+(3) run front-end app [crowdfunding-frontend-example](https://github.com/maddevsio/crowdfunding-frontend-example)
